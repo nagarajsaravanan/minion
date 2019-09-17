@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div><div class="loader"></div></div>
+    <div class="loader-div"><div class="loader"></div></div>
     <h1>{{ msg }}</h1>
     <!--<button>click me!</button>-->
     <select class="dogs-list" @change="get_data">
@@ -35,6 +35,7 @@ export default {
         console.log(response.data);
         this.list = response.data.message;
         document.querySelector('.loader').classList.remove('load');
+        document.querySelector('.loader-div').style.display = 'none';
         console.log(this.list);
       }).catch(function (error) {
         // handle error
@@ -43,12 +44,14 @@ export default {
   },
   methods: {
     get_data(e){
+      document.querySelector('.loader-div').style.display = 'block';
       document.querySelector('.loader').classList.add('load');
       console.log(e.target.value);
       axios.get('https://dog.ceo/api/breed/'+e.target.value+'/images').then(response => {
         console.log(response.data);
         this.images = response.data.message;
         document.querySelector('.loader').classList.remove('load');
+        document.querySelector('.loader-div').style.display = 'none';
       }).catch(function (error) {
         // handle error
         console.log(error);
@@ -103,7 +106,8 @@ a {
   border-top: 6px solid #fff;
   animation: animate 1.5s infinite linear;
 }
-.hello div{
+.loader-div{
+    top: -30px;
     width: 100%;
     height: 1000px;
     opacity: 1;
