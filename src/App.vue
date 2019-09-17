@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <Headers>
-    </Headers>
     <HelloWorld msg="Dogs World"/>
   </div>
 </template>
@@ -13,8 +11,7 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    Headers
+    HelloWorld
   }
 }
 </script>
