@@ -8,7 +8,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import Headers from './components/Headers.vue'
+//import Headers from './components/Headers.vue'
 
 export default {
   name: 'app',
